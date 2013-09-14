@@ -6,7 +6,7 @@ describe "HomePages" do
   describe "Home page" do
     before { visit root_path }
 
-    it { should have_title("WenBlog") }
+    it { should have_content("WenBlog") }
   
     #it "hahah" do
     #  expect(page).to have_title("WenBlog")

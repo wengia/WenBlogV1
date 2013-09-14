@@ -1,3 +1,9 @@
-<%provide(:title, 'Home')%>
-<h1>HomePages#home</h1>
-<p>Find me in app/views/home_pages/home.html.erb</p>
+<% provide(:title, 'Home') %>
+<div class="center hero-unit">
+  <h1>HomePages#home</h1>
+  <p>Find me in app/views/home_pages/home.html.erb</p>
+
+  <%= link_to "Sign up now!", '#', class: "btn btn-large btn-primary"  %>
+</div>
+
+<%= link_to image_tag("smile.jpg", alt: "cat"), '#' %>
