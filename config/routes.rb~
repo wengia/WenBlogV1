@@ -1,13 +1,14 @@
 WenBlogV1::Application.routes.draw do
   resources :wen_users
 
-  resources :users
+  resources :sessions, only: [:new, :create, :destroy]
 
   get "home_pages/home"
   root "home_pages#home"
 
-  match "/signup", to: "users#new", via: 'get'
-  
+  match "/signup", to: 'wen_users#new', via: 'get'
+  match "/signin", to: 'sessions#new', via: 'get'
+  match "/signout", to: 'sessions#destroy', via: 'get'
 
   
   # The priority is based upon order of creation: first created -> highest priority.

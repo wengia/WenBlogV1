@@ -8,9 +8,11 @@
   <%= render 'layouts/shim' %>
 </head>
 <body>
+    <%= flash[:error] %>
+    <%#= flash[:alert] %>
   <%= render 'layouts/header' %>
   <div class = "container">
-    <%= flash.notice %>
+    
     <%= yield %>
     <%= debug(params) if Rails.env.development? %>
   </div>

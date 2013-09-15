@@ -4,10 +4,10 @@
       <%= link_to "Function", '#', id:"logo" %>
       <nav>
         <ul class = "nav pull-right">
-          <li><%= link_to "Home", home_pages_home_path %></li>
+          <li><%= link_to "Home", root_path %></li>
           <li><%= link_to "Square", "#" %></li>
           <li><%= link_to "Blog", "#" %></li>
-          <li><%= link_to "Sign In", "#" %></li>
+          <li><%= link_to "Sign In", signin_path %></li>
         </ul>
       </nav>
     </div>

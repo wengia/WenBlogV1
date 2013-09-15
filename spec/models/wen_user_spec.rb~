@@ -12,10 +12,12 @@ describe WenUser do
   it { should respond_to(:password_digest) }
   it { should respond_to(:password) }
   it { should respond_to(:password_confirmation) }
+  it { should respond_to(:remember_token) }
+  it { should respond_to(:authenticate) }
   
 
   it { should be_valid }
-  it { should respond_to(:authenticate) }
+  
 
   describe "when not present a meaningful name" do
     before { @user.name = " " }
@@ -64,7 +66,7 @@ describe WenUser do
 
   describe "return authenticate value" do
     before { @user.save }
-    let(:found_user){ User.find_by(name: @user.name) }
+    let(:found_user){ WenUser.find_by(name: @user.name) }
 
     describe "with valid password" do
       it { should eq found_user.authenticate(@user.password) }

@@ -1,0 +1,22 @@
+class SessionsController < ApplicationController
+  
+  def new
+  end
+
+  def create
+    wen_user = WenUser.find_by(name: params[:session][:name])
+    if wen_user && wen_user.authenticate(params[:session][:password])
+      sign_in wen_user
+      redirect_to wen_user
+    else
+      flash.now[:error] = 'Invalid name/password combination'
+      render 'new'
+    end
+  end
+
+  def destroy
+    sign_out
+    redirect_to root_url
+  end
+  
+end

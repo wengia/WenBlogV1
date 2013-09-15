@@ -28,6 +28,7 @@ class WenUsersController < ApplicationController
 
     respond_to do |format|
       if @wen_user.save
+        sign_in @wen_user
         format.html { redirect_to @wen_user, notice: 'Wen user was successfully created.' }
         format.json { render action: 'show', status: :created, location: @wen_user }
       else

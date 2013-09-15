@@ -69,6 +69,6 @@ class WenUsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def wen_user_params
-      params.require(:wen_user).permit(:name, :email, :tel, :addr)
+      params.require(:wen_user).permit(:name, :email, :tel, :addr, :password, :password_confirmation)
     end
 end
