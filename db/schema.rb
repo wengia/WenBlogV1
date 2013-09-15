@@ -11,32 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130915170832) do
+ActiveRecord::Schema.define(version: 20130915221553) do
 
-  create_table "users", force: true do |t|
-    t.string   "name"
-    t.string   "email"
-    t.integer  "tel"
-    t.string   "addr"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "password_digest"
-  end
-
-  add_index "users", ["name"], name: "index_users_on_name", unique: true
-
-  create_table "wen_users", force: true do |t|
-    t.string   "name"
-    t.string   "email"
-    t.integer  "tel"
-    t.string   "addr"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "password_digest"
-    t.string   "remember_token"
-  end
-
-  add_index "wen_users", ["name"], name: "index_wen_users_on_name", unique: true
-  add_index "wen_users", ["remember_token"], name: "index_wen_users_on_remember_token"
+# Could not dump table "wen_users" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
 
 end

@@ -6,6 +6,7 @@ gem 'rails', '4.0.0'
 # gem 'pg'
 gem 'bootstrap-sass'
 gem 'bcrypt-ruby', '3.0.1'
+gem 'faker'
 
 # Use sqlite3 as the database for Active Record
 group :development, :test do

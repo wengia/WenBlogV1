@@ -9,7 +9,7 @@
 </head>
 <body>
     <%= flash[:error] %>
-    <%= # flash[:alert] %>
+    <%#= flash[:alert] %>
   <%= render 'layouts/header' %>
   <div class = "container">
     

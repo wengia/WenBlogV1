@@ -1,5 +1,7 @@
 class WenUsersController < ApplicationController
   before_action :set_wen_user, only: [:show, :edit, :update, :destroy]
+  before_action :signed_in_user, only: [:edit, :update]
+  before_action :correct_user,   only: [:edit, :update]
 
   # GET /wen_users
   # GET /wen_users.json
@@ -71,5 +73,17 @@ class WenUsersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def wen_user_params
       params.require(:wen_user).permit(:name, :email, :tel, :addr, :password, :password_confirmation)
+    end
+
+    def signed_in_user
+      unless signed_in?
+        store_location
+        redirect_to signin_url, notice: "Please sign in."
+      end
+    end
+
+    def correct_user
+      @wen_user = WenUser.find(params[:id])
+      redirect_to(root_url) unless current_user?(@wen_user)
     end
 end

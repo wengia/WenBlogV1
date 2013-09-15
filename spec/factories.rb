@@ -6,5 +6,9 @@ FactoryGirl.define do
     addr "hahasun street"
     password "foobar"
     password_confirmation "foobar"
+
+    factory :admin do
+      admin true
+    end
   end
 end

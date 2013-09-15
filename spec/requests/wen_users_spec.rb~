@@ -3,6 +3,30 @@ require 'spec_helper'
 describe "WenUsers" do
   subject { page }
   
+  describe "index page" do
+    let(:wen_user) { FactoryGirl.create(:wen_user) }
+    
+    before do
+      visit signin_path
+      fill_in "Name",    with: wen_user.name
+      fill_in "Password", with: wen_user.password
+      click_button "Sign in"
+
+      FactoryGirl.create(:wen_user, name: "Boba", email: "boba@example.com")
+      FactoryGirl.create(:wen_user, name: "Bene", email: "bene@example.com")
+      visit wen_users_path
+    end
+
+    it { should have_title('All users') }
+    it { should have_content('WenUsers') }
+
+    it "should list each user" do
+      WenUser.all.each do |user|
+        expect(page).to have_selector('li', text: user.name)
+      end
+    end
+  end
+
   describe "signup (new) page" do
     before { visit signup_path }
     let(:submit) { "Submit" }
@@ -30,7 +54,7 @@ describe "WenUsers" do
 
         it { should have_link('Sign out') }
         it { should have_title(wen_user.name) }
-        it { should have_selector('div.alert.alert-success', text: 'successfully') }
+        it { should have_content('successfully') }
       end
     end
   end

@@ -4,7 +4,7 @@
 <ul class="users">
   <% @wen_users.each do |wen_user| %>
     <li>
-      <%= gravatar_for wen_user %>
+      <%= gravatar_for (wen_user, size: 52) %>
       <%= link_to wen_user.name, wen_user %>
     </li>
   <% end %>
