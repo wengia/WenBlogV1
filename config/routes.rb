@@ -1,10 +1,15 @@
 WenBlogV1::Application.routes.draw do
-  get "home_pages/home"
+  resources :wen_users
 
-  match "/signup", to: "users#new", via: 'get'
+  resources :users
+
+  get "home_pages/home"
+  root "home_pages#home"
+
+  match "/signup", to: "wen_users#new", via: 'get'
   
 
-  root "home_pages#home"
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

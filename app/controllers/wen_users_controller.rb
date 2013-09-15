@@ -1,0 +1,74 @@
+class WenUsersController < ApplicationController
+  before_action :set_wen_user, only: [:show, :edit, :update, :destroy]
+
+  # GET /wen_users
+  # GET /wen_users.json
+  def index
+    @wen_users = WenUser.all
+  end
+
+  # GET /wen_users/1
+  # GET /wen_users/1.json
+  def show
+  end
+
+  # GET /wen_users/new
+  def new
+    @wen_user = WenUser.new
+  end
+
+  # GET /wen_users/1/edit
+  def edit
+  end
+
+  # POST /wen_users
+  # POST /wen_users.json
+  def create
+    @wen_user = WenUser.new(wen_user_params)
+
+    respond_to do |format|
+      if @wen_user.save
+        format.html { redirect_to @wen_user, notice: 'Wen user was successfully created.' }
+        format.json { render action: 'show', status: :created, location: @wen_user }
+      else
+        format.html { render action: 'new' }
+        format.json { render json: @wen_user.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # PATCH/PUT /wen_users/1
+  # PATCH/PUT /wen_users/1.json
+  def update
+    respond_to do |format|
+      if @wen_user.update(wen_user_params)
+        format.html { redirect_to @wen_user, notice: 'Wen user was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: 'edit' }
+        format.json { render json: @wen_user.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # DELETE /wen_users/1
+  # DELETE /wen_users/1.json
+  def destroy
+    @wen_user.destroy
+    respond_to do |format|
+      format.html { redirect_to wen_users_url }
+      format.json { head :no_content }
+    end
+  end
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_wen_user
+      @wen_user = WenUser.find(params[:id])
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def wen_user_params
+      params.require(:wen_user).permit(:name, :email, :tel, :addr, :password, :password_confirmation)
+    end
+end

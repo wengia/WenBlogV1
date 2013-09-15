@@ -1,0 +1,33 @@
+<h1>Listing wen_users</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Tel</th>
+      <th>Addr</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @wen_users.each do |wen_user| %>
+      <tr>
+        <td><%= wen_user.name %></td>
+        <td><%= wen_user.email %></td>
+        <td><%= wen_user.tel %></td>
+        <td><%= wen_user.addr %></td>
+        <td><%= link_to 'Show', wen_user %></td>
+        <td><%= link_to 'Edit', edit_wen_user_path(wen_user) %></td>
+        <td><%= link_to 'Destroy', wen_user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Wen user', new_wen_user_path %>

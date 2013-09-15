@@ -1,0 +1,5 @@
+<h1>New wen_user</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Back', wen_users_path %>

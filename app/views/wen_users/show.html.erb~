@@ -1,0 +1,33 @@
+<% provide(:title, @wen_user.name) %>
+
+<div class="row">
+  <aside class="span4">
+    <section>
+	<p id="notice"><%= notice %></p>
+	<p>
+	  <%= gravatar_for @wen_user %>
+	  <strong>Name:</strong>
+	  <%= @wen_user.name %>
+	</p>
+    </section>
+  </aside>
+</div>
+	<p>
+	  <strong>Email:</strong>
+	  <%= @wen_user.email %>
+	</p>
+
+	<p>
+	  <strong>Tel:</strong>
+	  <%= @wen_user.tel %>
+	</p>
+
+	<p>
+	  <strong>Addr:</strong>
+	  <%= @wen_user.addr %>
+	</p>
+
+
+
+<%= link_to 'Edit', edit_wen_user_path(@wen_user) %> |
+<%= link_to 'Back', wen_users_path %>

@@ -1,0 +1,5 @@
+class AddIndexToWenusersName < ActiveRecord::Migration
+  def change
+    add_index :wen_users, :email, unique: true
+  end
+end

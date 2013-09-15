@@ -1,0 +1,45 @@
+<div class="row">
+  <div class="span6 offset3">
+	<%= form_for(@wen_user) do |f| %>
+	  <% if @wen_user.errors.any? %>
+		<div id="error_explanation">
+		  <h2><%= pluralize(@wen_user.errors.count, "error") %> prohibited this wen_user from being saved:</h2>
+
+		  <ul>
+		  <% @wen_user.errors.full_messages.each do |msg| %>
+		    <li><%= msg %></li>
+		  <% end %>
+		  </ul>
+		</div>
+	  <% end %>
+
+	  <div class="field">
+		<%= f.label :name %><br>
+		<%= f.text_field :name %>
+	  </div>
+	  <div class="field">
+		<%= f.label :email %><br>
+		<%= f.text_field :email %>
+	  </div>
+	  <div class="field">
+		<%= f.label :tel %><br>
+		<%= f.number_field :tel %>
+	  </div>
+	  <div class="field">
+		<%= f.label :addr %><br>
+		<%= f.text_field :addr %>
+	  </div>
+	  <div class="field">
+		<%= f.label :password %><br>
+		<%= f.text_field :password %>
+	  </div>
+	  <div class="field">
+		<%= f.label :password_confirmation %><br>
+		<%= f.text_field :password_confirmation %>
+	  </div>
+	  <div class="actions">
+		<%= f.submit "Submit", class: "btn btn-large btn-primary" %>
+	  </div>
+	<% end %>
+  </div>
+</div>
